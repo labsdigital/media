@@ -229,40 +229,44 @@
     </main>
 
     <script>
-        // --- DATA STRUKTUR ---
+        // --- DATA STRUKTUR DENGAN URL LENGKAP ---
         const data = [
             {
                 title: "Aplikasi Pembelajaran",
                 icon: "🎓",
                 items: [
-                    { name: "Lab Virtual BBGP DIY", url: "#" },
-                    { name: "Mathigom Polypad", url: "#" },
-                    { name: "PHet Colorado", url: "#" },
-                    { name: "Geogebra Online", url: "#" },
-                    { name: "Geogebra Download", url: "#" },
-                    { name: "Desmos Calculator", url: "#" },
-                    { name: "Desmos Geometry", url: "#" }
+                    { name: "Lab Virtual BBGP DIY", url: "https://bbgtkdiy.kemendikdasmen.go.id/labvirtual/" },
+                    { name: "Mathigon Polypad", url: "https://mathigon.org/polypad" },
+                    { name: "PHet Colorado", url: "https://phet.colorado.edu/" },
+                    { name: "Geogebra Online", url: "https://www.geogebra.org/" },
+                    { name: "Geogebra Download", url: "https://www.geogebra.org/download" },
+                    { name: "Desmos Calculator", url: "https://www.desmos.com/calculator" },
+                    { name: "Desmos Geometry", url: "https://www.desmos.com/geometry" }
                 ]
             },
             {
                 title: "Aplikasi Interaktif Matematika",
                 icon: "💡",
                 items: [
-                    { name: "Penjumlahan", url: "#" }, { name: "Perkalian", url: "#" }, { name: "Pembagian", url: "#" },
-                    { name: "Garis Bilangan (Positif)", url: "#" }, { name: "Garis Bilangan (Positif-Negatif)", url: "#" },
-                    { name: "Garis Bilangan (Perkalian)", url: "#" }, { name: "Garis Bilangan (Mathlearning)", url: "#" },
-                    { name: "Polypad", url: "#" }, { name: "Pin Bilangan (Number Disks)", url: "#" },
-                    { name: "Ubin Aljabar SD-SMP", url: "#" }, { name: "Ubin Aljabar SMP", url: "#" },
-                    { name: "Tangram Online", url: "#" }, { name: "Math Playground Geoboard", url: "#" }, { name: "Blok Dienes", url: "#" }
+                    { name: "Garis Bilangan (Positif)", url: "https://bbgpdiy.kemdikbud.go.id/lab/GarisBilangan1/" },
+                    { name: "Garis Bilangan (Positif-Negatif)", url: "http://edutekno.github.io/garisbilangan10" },
+                    { name: "Garis Bilangan (Mathlearning)", url: "https://apps.mathlearningcenter.org/number-line/" },
+                    { name: "Polypad", url: "https://mathigon.org/polypad" },
+                    { name: "Pin Bilangan (Number Disks)", url: "https://mathigon.org/polypad/#numbers" },
+                    { name: "Ubin Aljabar SD-SMP", url: "https://bbgpdiy.kemdikbud.go.id/lab/kaljabarsd/" },
+                    { name: "Ubin Aljabar SMP", url: "https://bbgpdiy.kemdikbud.go.id/lab/kaljabarsmp" },
+                    { name: "Tangram Online", url: "http://www.tangramonline.com/" },
+                    { name: "Math Playground Geoboard", url: "https://www.mathplayground.com/geoboard.html" },
+                    { name: "Blok Dienes", url: "https://mathigon.org/polypad" }
                 ]
             },
             {
                 title: "Simulasi & Permainan Matematika",
                 icon: "🎲",
                 items: [
-                    { name: "Simulasi Perkalian", url: "#" },
-                    { name: "Simulasi Pembagian", url: "#" },
-                    { name: "Perkalian dengan Model Area", url: "#" }
+                    { name: "Simulasi Perkalian", url: "https://phet.colorado.edu/en/math-simulations/" },
+                    { name: "Simulasi Pembagian", url: "https://phet.colorado.edu/en/math-simulations/" },
+                    { name: "Perkalian dengan Model Area", url: "https://phet.colorado.edu/en/math-simulations/" }
                 ]
             },
             {
@@ -282,51 +286,71 @@
                 title: "Alat Peraga Digital",
                 icon: "🧰",
                 items: [
-                    { name: "Math Playground Geoboard", url: "#" }, { name: "Mathsbot Geoboard", url: "#" },
-                    { name: "Toy Theater Geoboard", url: "#" }, { name: "Room Recess Geoboard", url: "#" }, { name: "Geobasic", url: "#" },
-                    { name: "Mathigon Tangram", url: "#" }, { name: "Tangram Online", url: "#" }, { name: "Kemdikbud Tangram", url: "#" },
-                    { name: "Mathigon Polypad", url: "#" }, { name: "BlocksCAD", url: "#" }, { name: "3DC.io", url: "#" }
+                    { name: "Math Playground Geoboard", url: "https://www.mathplayground.com/geoboard.html" },
+                    { name: "Mathsbot Geoboard", url: "https://mathsbot.com/manipulatives/geoboard" },
+                    { name: "Toy Theater Geoboard", url: "https://toytheater.com/geoboard/" },
+                    { name: "Room Recess Geoboard", url: "https://www.roomrecess.com/Tools/Geoboard/play.html" },
+                    { name: "Geobasic", url: "http://edutekno.github.io/geobasic" },
+                    { name: "Mathigon Tangram", url: "https://id.mathigon.org/tangram" },
+                    { name: "Tangram Online", url: "http://www.tangramonline.com/" },
+                    { name: "Kemdikbud Tangram", url: "https://bbgpdiy.kemdikbud.go.id/lab/tangram/" },
+                    { name: "Mathigon Polypad", url: "https://id.mathigon.org/polypad" },
+                    { name: "BlocksCAD", url: "https://bbgpdiy.kemdikbud.go.id/lab/BlocksCAD/" },
+                    { name: "3DC.io", url: "https://3dc.io/app/" }
                 ]
             },
             {
                 title: "Simulasi/Permainan Digital",
                 icon: "🕹️",
                 items: [
-                    { name: "Polyup Challenges", url: "#" }, { name: "SolveMe Mobiles", url: "#" },
-                    { name: "SolveMe Who Am I", url: "#" }, { name: "SolveMe Mystery Grid", url: "#" },
-                    { name: "NRich Factmult", url: "#" }, { name: "PhET Colorado Math", url: "#" }
+                    { name: "Polyup Challenges", url: "https://www.polyup.com/" },
+                    { name: "SolveMe Mobiles", url: "https://solveme.edc.org/mobiles" },
+                    { name: "SolveMe Who Am I", url: "https://solveme.edc.org/whoami" },
+                    { name: "SolveMe Mystery Grid", url: "https://solveme.edc.org/mysterygrid" },
+                    { name: "NRich Factmult", url: "https://nrich.maths.org/factmult/" },
+                    { name: "PhET Colorado Math", url: "https://phet.colorado.edu/en/math-simulations/" }
                 ]
             },
             {
                 title: "Aritmetika",
                 icon: "🔢",
                 items: [
-                    { name: "Snowball Smash", url: "#" }, { name: "Subtraction Games", url: "#" },
-                    { name: "Maths Fishing Multiplication", url: "#" }, { name: "Stone Age Stu Times Tables", url: "#" },
-                    { name: "Multiplication Games", url: "#" }, { name: "Division Maths Road Hopper", url: "#" },
-                    { name: "Fraction Addition", url: "#" }, { name: "Fraction Game", url: "#" }
+                    { name: "Snowball Smash", url: "https://mathsframe.co.uk/en/resources/resource/563/Snowball-Smash" },
+                    { name: "Subtraction Games", url: "https://mathsframe.co.uk/en/resources/resource/270/Subtraction-Crystal-Crash" },
+                    { name: "Maths Fishing Multiplication", url: "https://mathsframe.co.uk/en/resources/resource/306/Maths-Fishing-Multiplication" },
+                    { name: "Stone Age Stu Times Tables", url: "https://mathsframe.co.uk/en/resources/resource/544/Stone-Age-Stu-Times-Tables" },
+                    { name: "Multiplication Games", url: "https://www.mathplayground.com/index_multiplication_division.html" },
+                    { name: "Division Maths Road Hopper", url: "https://mathsframe.co.uk/en/resources/resource/551/Division-Maths-Road-Hopper" },
+                    { name: "Fraction Addition", url: "https://www.sheppardsoftware.com/math/fractions/addition-game/" },
+                    { name: "Fraction Game", url: "https://www.nctm.org/Classroom-Resources/Illuminations/Interactives/Fraction-Game/" }
                 ]
             },
             {
                 title: "Keliling dan Luas",
                 icon: "📏",
                 items: [
-                    { name: "Area Builder", url: "#" }, { name: "Save The Park", url: "#" },
-                    { name: "Area Blocks", url: "#" }, { name: "Area Perimeter Explorer", url: "#" }, { name: "Perimeter Snatch Jr", url: "#" }
+                    { name: "Area Builder", url: "https://phet.colorado.edu/sims/html/area-builder/latest/area-builder_en.html" },
+                    { name: "Save The Park", url: "https://pbskids.org/games/play/cyberchase-park-game/8474" },
+                    { name: "Area Blocks", url: "https://www.mathplayground.com/area_blocks.html" },
+                    { name: "Area Perimeter Explorer", url: "https://toytheater.com/area-perimeter-explorer/" },
+                    { name: "Perimeter Snatch Jr", url: "https://www.mathplayground.com/perimeter_snatch_jr.html" }
                 ]
             },
             {
                 title: "Pengukuran Sudut",
                 icon: "📐",
                 items: [
-                    { name: "Alien Angles", url: "#" }, { name: "Angle Alien Attack", url: "#" }, { name: "JMathPage", url: "#" }
+                    { name: "Alien Angles", url: "https://www.mathplayground.com/alienangles.html" },
+                    { name: "Angle Alien Attack", url: "https://mathsframe.co.uk/en/resources/resource/470/Angle-Alien-Attack" },
+                    { name: "JMathPage", url: "https://www.jmathpage.com/" }
                 ]
             },
             {
                 title: "Bidang Datar",
                 icon: "🔺",
                 items: [
-                    { name: "Coordinates Alien Attack", url: "#" }, { name: "Game Over Gopher", url: "#" }
+                    { name: "Coordinates Alien Attack", url: "https://mathsframe.co.uk/en/resources/resource/469/Coordinates-Alien-Attack" },
+                    { name: "Game Over Gopher", url: "https://mathsnacks.com/game-over-gopher.html" }
                 ]
             },
             {
@@ -342,17 +366,21 @@
                 title: "Tools Offline / Non-Interaktif",
                 icon: "📝",
                 items: [
-                    { name: "Education.com Worksheet", url: "#" }, { name: "Super Teacher Worksheets", url: "#" },
-                    { name: "Liveworksheet", url: "#" }, { name: "The Word Search Maker", url: "#" },
-                    { name: "Puzzle Maker", url: "#" }, { name: "Dads Worksheets", url: "#" }, { name: "Mathfun Worksheets", url: "#" }
+                    { name: "Education.com Worksheet", url: "https://www.education.com/worksheet-generator/" },
+                    { name: "Super Teacher Worksheets", url: "https://www.superteacherworksheets.com/" },
+                    { name: "Liveworksheet", url: "https://www.liveworksheets.com/" },
+                    { name: "The Word Search Maker", url: "https://thewordsearch.com/maker/" },
+                    { name: "Puzzle Maker", url: "https://puzzlemaker.discoveryeducation.com/" },
+                    { name: "Dads Worksheets", url: "https://www.dadsworksheets.com/" },
+                    { name: "Mathfun Worksheets", url: "https://www.mathfunworksheets.com/" }
                 ]
             },
             {
                 title: "Aplikasi 3D Modeling",
                 icon: "🧊",
                 items: [
-                    { name: "3DBlockscad", url: "#" }, 
-                    { name: "3DC.io", url: "#" },
+                    { name: "3DBlockscad", url: "https://www.blockscad3d.com/editor/" },
+                    { name: "3DC.io", url: "https://3dc.io/app/" },
                     { name: "🎥 Tutorial 3DC.io", url: "https://www.youtube.com/watch?v=flvMTSZxagc" },
                     { name: "🎥 Tutorial BlocksCAD", url: "https://www.youtube.com/watch?v=dAhgZsHs4cU&list=PLXep4PHdzlPMV-Z4WC4HllZ9eZaEjmZz1" }
                 ]
