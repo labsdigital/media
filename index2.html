@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Sumber Belajar Digital</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #4f46e5;
+            --accent-light: #eef2ff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- HEADER & HERO --- */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-container svg {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .category-section {
+            margin-bottom: 48px;
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+            background: var(--accent-light);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* --- CARDS GRID --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .card-icon {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* --- NO RESULTS --- */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header p { font-size: 1rem; }
+            .cards-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+            .card { padding: 14px 16px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pusat Sumber Belajar Digital</h1>
+        <p>Koleksi lengkap aplikasi, simulasi, dan alat peraga interaktif untuk mendukung pembelajaran modern.</p>
+        <div class="search-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="searchInput" placeholder="Cari aplikasi, simulasi, atau alat...">
+        </div>
+    </header>
+
+    <main id="content">
+        <!-- Content will be injected by JavaScript -->
+        <div id="noResults" class="no-results">
+            <h3>Tidak ada hasil ditemukan</h3>
+            <p>Coba gunakan kata kunci lain.</p>
+        </div>
+    </main>
+
+    <script>
+        // --- DATA STRUKTUR ---
+        const data = [
+            {
+                title: "Aplikasi Pembelajaran",
+                icon: "🎓",
+                items: [
+                    { name: "Lab Virtual BBGP DIY", url: "#" },
+                    { name: "Mathigom Polypad", url: "#" },
+                    { name: "PHet Colorado", url: "#" },
+                    { name: "Geogebra Online", url: "#" },
+                    { name: "Geogebra Download", url: "#" },
+                    { name: "Desmos Calculator", url: "#" },
+                    { name: "Desmos Geometry", url: "#" }
+                ]
+            },
+            {
+                title: "Aplikasi Interaktif Matematika",
+                icon: "💡",
+                items: [
+                    { name: "Penjumlahan", url: "#" }, { name: "Perkalian", url: "#" }, { name: "Pembagian", url: "#" },
+                    { name: "Garis Bilangan (Positif)", url: "#" }, { name: "Garis Bilangan (Positif-Negatif)", url: "#" },
+                    { name: "Garis Bilangan (Perkalian)", url: "#" }, { name: "Garis Bilangan (Mathlearning)", url: "#" },
+                    { name: "Polypad", url: "#" }, { name: "Pin Bilangan (Number Disks)", url: "#" },
+                    { name: "Ubin Aljabar SD-SMP", url: "#" }, { name: "Ubin Aljabar SMP", url: "#" },
+                    { name: "Tangram Online", url: "#" }, { name: "Math Playground Geoboard", url: "#" }, { name: "Blok Dienes", url: "#" }
+                ]
+            },
+            {
+                title: "Simulasi & Permainan Matematika",
+                icon: "🎲",
+                items: [
+                    { name: "Simulasi Perkalian", url: "#" },
+                    { name: "Simulasi Pembagian", url: "#" },
+                    { name: "Perkalian dengan Model Area", url: "#" }
+                ]
+            },
+            {
+                title: "Aplikasi IPA",
+                icon: "🔬",
+                items: [
+                    { name: "PHet Colorado", url: "https://phet.colorado.edu/" },
+                    { name: "Innerbody", url: "https://www.innerbody.com/" },
+                    { name: "OpenSciEd", url: "https://www.openscied.org/curriculum/middle-school/simulation-library/" },
+                    { name: "Concord Magnets", url: "http://magnets.concord.org/" },
+                    { name: "ScienceLearn Digestive", url: "https://www.sciencelearn.org.nz/labelling_interactives/14-label-the-human-digestive-system" },
+                    { name: "Learn Concord", url: "https://learn.concord.org/" },
+                    { name: "NASA Eyes Solar System", url: "https://eyes.nasa.gov/apps/solar-system/#/home" }
+                ]
+            },
+            {
+                title: "Alat Peraga Digital",
+                icon: "🧰",
+                items: [
+                    { name: "Math Playground Geoboard", url: "#" }, { name: "Mathsbot Geoboard", url: "#" },
+                    { name: "Toy Theater Geoboard", url: "#" }, { name: "Room Recess Geoboard", url: "#" }, { name: "Geobasic", url: "#" },
+                    { name: "Mathigon Tangram", url: "#" }, { name: "Tangram Online", url: "#" }, { name: "Kemdikbud Tangram", url: "#" },
+                    { name: "Mathigon Polypad", url: "#" }, { name: "BlocksCAD", url: "#" }, { name: "3DC.io", url: "#" }
+                ]
+            },
+            {
+                title: "Simulasi/Permainan Digital",
+                icon: "🕹️",
+                items: [
+                    { name: "Polyup Challenges", url: "#" }, { name: "SolveMe Mobiles", url: "#" },
+                    { name: "SolveMe Who Am I", url: "#" }, { name: "SolveMe Mystery Grid", url: "#" },
+                    { name: "NRich Factmult", url: "#" }, { name: "PhET Colorado Math", url: "#" }
+                ]
+            },
+            {
+                title: "Aritmetika",
+                icon: "🔢",
+                items: [
+                    { name: "Snowball Smash", url: "#" }, { name: "Subtraction Games", url: "#" },
+                    { name: "Maths Fishing Multiplication", url: "#" }, { name: "Stone Age Stu Times Tables", url: "#" },
+                    { name: "Multiplication Games", url: "#" }, { name: "Division Maths Road Hopper", url: "#" },
+                    { name: "Fraction Addition", url: "#" }, { name: "Fraction Game", url: "#" }
+                ]
+            },
+            {
+                title: "Keliling dan Luas",
+                icon: "📏",
+                items: [
+                    { name: "Area Builder", url: "#" }, { name: "Save The Park", url: "#" },
+                    { name: "Area Blocks", url: "#" }, { name: "Area Perimeter Explorer", url: "#" }, { name: "Perimeter Snatch Jr", url: "#" }
+                ]
+            },
+            {
+                title: "Pengukuran Sudut",
+                icon: "📐",
+                items: [
+                    { name: "Alien Angles", url: "#" }, { name: "Angle Alien Attack", url: "#" }, { name: "JMathPage", url: "#" }
+                ]
+            },
+            {
+                title: "Bidang Datar",
+                icon: "🔺",
+                items: [
+                    { name: "Coordinates Alien Attack", url: "#" }, { name: "Game Over Gopher", url: "#" }
+                ]
+            },
+            {
+                title: "Aplikasi IPS & Bahasa",
+                icon: "📚",
+                items: [
+                    { name: "StoryJumper", url: "https://www.storyjumper.com/" },
+                    { name: "MyStoryBook", url: "https://www.mystorybook.com/" },
+                    { name: "TimeToast", url: "https://www.timetoast.com/" }
+                ]
+            },
+            {
+                title: "Tools Offline / Non-Interaktif",
+                icon: "📝",
+                items: [
+                    { name: "Education.com Worksheet", url: "#" }, { name: "Super Teacher Worksheets", url: "#" },
+                    { name: "Liveworksheet", url: "#" }, { name: "The Word Search Maker", url: "#" },
+                    { name: "Puzzle Maker", url: "#" }, { name: "Dads Worksheets", url: "#" }, { name: "Mathfun Worksheets", url: "#" }
+                ]
+            },
+            {
+                title: "Aplikasi 3D Modeling",
+                icon: "🧊",
+                items: [
+                    { name: "3DBlockscad", url: "#" }, 
+                    { name: "3DC.io", url: "#" },
+                    { name: "🎥 Tutorial 3DC.io", url: "https://www.youtube.com/watch?v=flvMTSZxagc" },
+                    { name: "🎥 Tutorial BlocksCAD", url: "https://www.youtube.com/watch?v=dAhgZsHs4cU&list=PLXep4PHdzlPMV-Z4WC4HllZ9eZaEjmZz1" }
+                ]
+            }
+        ];
+
+        // --- RENDER FUNCTION ---
+        const content = document.getElementById('content');
+        const noResults = document.getElementById('noResults');
+
+        function renderData(filterText = "") {
+            // Clear existing sections except noResults
+            const existingSections = content.querySelectorAll('.category-section');
+            existingSections.forEach(sec => sec.remove());
+
+            let totalVisibleItems = 0;
+
+            data.forEach((category, index) => {
+                const filteredItems = category.items.filter(item => 
+                    item.name.toLowerCase().includes(filterText.toLowerCase()) || 
+                    category.title.toLowerCase().includes(filterText.toLowerCase())
+                );
+
+                if (filteredItems.length > 0) {
+                    totalVisibleItems += filteredItems.length;
+
+                    const section = document.createElement('section');
+                    section.className = 'category-section';
+                    section.style.animationDelay = `${index * 0.05}s`;
+
+                    let cardsHTML = filteredItems.map(item => `
+                        <a href="${item.url}" target="_blank" class="card" rel="noopener noreferrer">
+                            <span class="card-icon">🔗</span>
+                            <span>${item.name}</span>
+                        </a>
+                    `).join('');
+
+                    section.innerHTML = `
+                        <div class="category-header">
+                            <div class="category-icon">${category.icon}</div>
+                            <h2 class="category-title">${category.title}</h2>
+                        </div>
+                        <div class="cards-grid">
+                            ${cardsHTML}
+                        </div>
+                    `;
+                    
+                    content.insertBefore(section, noResults);
+                }
+            });
+
+            // Toggle No Results Message
+            if (totalVisibleItems === 0) {
+                noResults.classList.add('visible');
+            } else {
+                noResults.classList.remove('visible');
+            }
+        }
+
+        // --- SEARCH EVENT LISTENER ---
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            renderData(e.target.value);
+        });
+
+        // Initial Render
+        renderData();
+    </script>
+</body>
+</html>
